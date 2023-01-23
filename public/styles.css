@@ -43,9 +43,12 @@ body {
   z-index: -1;
 }
 
+/* Heading */
+
 .heading {
   font-size: 4rem;
   margin-bottom: 0.2em;
+  letter-spacing: -0.03em;
 }
 
 .sub-heading {
@@ -74,4 +77,36 @@ body {
   background-image: url("images/die1.svg");
   background-repeat: no-repeat;
   background-size: cover;
+  cursor: pointer;
+}
+
+/* button */
+.game-btn {
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 700;
+  background-color: #74cca7;
+  border: 3px solid black;
+  border-radius: 5px;
+  box-shadow: 4px 4px 0 black;
+  padding: 0.5em 1.8em;
+  letter-spacing: 0.07em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  cursor: pointer;
+  position: relative;
+}
+
+.game-btn:hover {
+  box-shadow: none;
+  top: 4px;
+  left: 4px;
+}
+
+/* tip */
+.tip-img {
+  display: block;
+  margin: 3.6em auto;
 }

@@ -36,6 +36,11 @@ export default function App() {
         <span className="bold circle">same</span>.
       </h4>
       <div className="dice-container">{diceElement}</div>
+      <button className="game-btn">
+        Roll
+        <img src="images/roll-icon.svg"></img>
+      </button>
+      <img className="tip-img" src="/images/tip.svg" />
     </div>
   );
 }
