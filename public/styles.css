@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Nunito:wght@400;700;900&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  background-color: #ececec;
+  text-align: center;
+}
+
+.bold {
+  font-weight: 900;
+}
+
+.underline-1,
+.underline-2,
+.circle {
+  position: relative;
+}
+
+.underline-1::before {
+  content: url("images/underline1.svg");
+  position: absolute;
+  bottom: -0.4em;
+}
+
+.underline-2::before {
+  content: url("images/underline2.svg");
+  position: absolute;
+  bottom: -0.4em;
+}
+
+.circle::before {
+  content: url("images/circle.svg");
+  position: absolute;
+  bottom: -0.75em;
+  right: -0.45em;
+  z-index: -1;
+}
+
+.heading {
+  font-size: 4rem;
+  margin-bottom: 0.2em;
+}
+
+.sub-heading {
+  margin: 0;
+  color: #4a4e74;
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+
+/* Dice */
+.dice-container {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  grid-gap: 2em;
+  max-width: 420px;
+  margin: 2.375em auto;
+  padding: 3.5em;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+}
+
+.die-container {
+  width: 75px;
+  height: 75px;
+  margin: 0 auto;
+  background-image: url("images/die1.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
