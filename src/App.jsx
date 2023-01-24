@@ -4,6 +4,16 @@ import { nanoid } from "nanoid";
 
 export default function App() {
   const [dice, setDice] = React.useState(() => allNewDice());
+  const [isgameFinished, setIsGameFinished] = React.useState(false);
+
+  React.useEffect(() => {
+    const allHeld = dice.every((die) => die.isHeld);
+    const allSame = dice.every((die) => die.value === dice[0].value);
+
+    if (allHeld && allSame) {
+      setIsGameFinished(true);
+    }
+  }, [dice]);
 
   function getRandomNumber() {
     return Math.ceil(Math.random() * 6);
@@ -34,6 +44,15 @@ export default function App() {
     );
   }
 
+  function handleBtnClick() {
+    if (isgameFinished) {
+      setDice(allNewDice());
+      setIsGameFinished(false);
+    } else {
+      setDice(dice.map((die) => (die.isHeld ? die : generateDie())));
+    }
+  }
+
   const diceElement = dice.map((die) => (
     <Die
       key={die.id}
@@ -42,6 +61,7 @@ export default function App() {
       toggleHold={() => toggleHold(die.id)}
     />
   ));
+
   return (
     <div>
       <h1 className="heading">Tenzies</h1>
@@ -51,9 +71,9 @@ export default function App() {
         <span className="bold circle">same</span>.
       </h4>
       <div className="dice-container">{diceElement}</div>
-      <button className="game-btn">
-        Roll
-        <img src="images/roll-icon.svg"></img>
+      <button className="game-btn" onClick={handleBtnClick}>
+        {!isgameFinished ? "Roll" : "Start a new game"}
+        {!isgameFinished && <img src="images/roll-icon.svg"></img>}
       </button>
       <img className="tip-img" src="/images/tip.svg" />
     </div>
