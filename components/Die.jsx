@@ -1,19 +1,13 @@
 import React from "react";
 
 export default function Die(props) {
-  const [isTempColored, setIsTempColored] = React.useState(false);
   const imgSrc = `images/die${props.value}${
-    isTempColored ? "-colored" : ""
+    props.isHeld ? "-colored" : ""
   }.svg`;
 
   return (
     <div className="die-container">
-      <img
-        className="die-img"
-        onMouseEnter={() => setIsTempColored(true)}
-        onMouseLeave={() => setIsTempColored(false)}
-        src={imgSrc}
-      ></img>
+      <img className="die-img" onClick={props.toggleHold} src={imgSrc}></img>
     </div>
   );
 }

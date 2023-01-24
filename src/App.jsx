@@ -26,7 +26,22 @@ export default function App() {
     return newDice;
   }
 
-  const diceElement = dice.map((die) => <Die key={die.id} value={die.value} />);
+  function toggleHold(dieId) {
+    setDice(
+      dice.map((die) =>
+        die.id === dieId ? { ...die, isHeld: !die.isHeld } : die
+      )
+    );
+  }
+
+  const diceElement = dice.map((die) => (
+    <Die
+      key={die.id}
+      value={die.value}
+      isHeld={die.isHeld}
+      toggleHold={() => toggleHold(die.id)}
+    />
+  ));
   return (
     <div>
       <h1 className="heading">Tenzies</h1>
