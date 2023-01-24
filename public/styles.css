@@ -46,7 +46,8 @@ body {
 /* Heading */
 
 .heading {
-  font-size: 4rem;
+  font-size: 3.3rem;
+  font-weight: 900;
   margin-block: 1em 0.2em;
   letter-spacing: -0.03em;
 }
@@ -62,9 +63,9 @@ body {
 .dice-container {
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-  grid-gap: 2em;
+  grid-gap: 2.5em;
   max-width: 420px;
-  margin: 2.5em auto;
+  margin: 2.2em auto;
   padding: 3.5em;
   background-color: #1e1e1e;
   border-radius: 10px;
@@ -92,7 +93,8 @@ body {
   border: 3px solid black;
   border-radius: 5px;
   box-shadow: 4px 4px 0 black;
-  padding: 0.5em 1.8em;
+  padding: 0.5em;
+  width: 200px;
   letter-spacing: 0.07em;
   display: inline-flex;
   align-items: center;
@@ -108,8 +110,14 @@ body {
   left: 4px;
 }
 
+.roll-cnt {
+  font-size: 1rem;
+  margin-block: 1em;
+}
+
 /* tip */
 .tip-img {
   display: block;
-  margin: 3.6em auto;
+  margin: 3em auto;
+  opacity: 75%;
 }

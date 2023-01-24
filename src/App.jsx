@@ -1,10 +1,12 @@
 import React from "react";
 import Die from "../components/Die";
 import { nanoid } from "nanoid";
+import Confetti from "react-confetti";
 
 export default function App() {
   const [dice, setDice] = React.useState(() => allNewDice());
   const [isgameFinished, setIsGameFinished] = React.useState(false);
+  const [rollCnt, setRollCnt] = React.useState(0);
 
   React.useEffect(() => {
     const allHeld = dice.every((die) => die.isHeld);
@@ -48,8 +50,10 @@ export default function App() {
     if (isgameFinished) {
       setDice(allNewDice());
       setIsGameFinished(false);
+      setRollCnt(0);
     } else {
       setDice(dice.map((die) => (die.isHeld ? die : generateDie())));
+      setRollCnt((prevRollCnt) => prevRollCnt + 1);
     }
   }
 
@@ -64,6 +68,7 @@ export default function App() {
 
   return (
     <div>
+      {isgameFinished && <Confetti />}
       <h1 className="heading">Tenzies</h1>
       <h4 className="sub-heading">
         <span className="bold underline-1">Roll</span>,{" "}
@@ -72,9 +77,10 @@ export default function App() {
       </h4>
       <div className="dice-container">{diceElement}</div>
       <button className="game-btn" onClick={handleBtnClick}>
-        {!isgameFinished ? "Roll" : "Start a new game"}
+        {!isgameFinished ? "Roll" : "New game"}
         {!isgameFinished && <img src="images/roll-icon.svg"></img>}
       </button>
+      <h5 className="roll-cnt">Roll count: {rollCnt}</h5>
       <img className="tip-img" src="/images/tip.svg" />
     </div>
   );
