@@ -47,7 +47,7 @@ body {
 
 .heading {
   font-size: 4rem;
-  margin-bottom: 0.2em;
+  margin-block: 1em 0.2em;
   letter-spacing: -0.03em;
 }
 
@@ -64,20 +64,23 @@ body {
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   grid-gap: 2em;
   max-width: 420px;
-  margin: 2.375em auto;
+  margin: 2.5em auto;
   padding: 3.5em;
   background-color: #1e1e1e;
   border-radius: 10px;
 }
 
+/* Die */
 .die-container {
   width: 75px;
   height: 75px;
   margin: 0 auto;
-  background-image: url("images/die1.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
   cursor: pointer;
+}
+
+.die-img {
+  width: 100%;
+  object-fit: cover;
 }
 
 /* button */
