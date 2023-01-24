@@ -31,7 +31,7 @@ export default function App() {
 
   function allNewDice() {
     const newDice = [];
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 10; i++) {
       newDice.push(generateDie());
     }
 
@@ -75,13 +75,20 @@ export default function App() {
         <span className="bold underline-2">Freeze</span> until all dice are the{" "}
         <span className="bold circle">same</span>.
       </h4>
-      <div className="dice-container">{diceElement}</div>
+      {isgameFinished ? (
+        <div className="win">You won!</div>
+      ) : (
+        <div className="dice-container">{diceElement}</div>
+      )}
+      {isgameFinished && (
+        <div className="win-roll">- [ with {rollCnt} rolls ] -</div>
+      )}
       <button className="game-btn" onClick={handleBtnClick}>
         {!isgameFinished ? "Roll" : "New game"}
         {!isgameFinished && <img src="images/roll-icon.svg"></img>}
       </button>
-      <h5 className="roll-cnt">Roll count: {rollCnt}</h5>
-      <img className="tip-img" src="/images/tip.svg" />
+      {!isgameFinished && <h5 className="roll-cnt">Rolls count: {rollCnt}</h5>}
+      {!isgameFinished && <img className="tip-img" src="/images/tip.svg" />}
     </div>
   );
 }
